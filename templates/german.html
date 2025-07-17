@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebensweisheiten - Zitate und Sprichwörter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+
+    <!-- Navigationsleiste -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Startseite</a></li>
+            <li><a href="{{ url_for('quotes') }}">Zitate</a></li>
+            <li><a href="{{ url_for('proverbs') }}">Sprichwörter</a></li>
+            <li><a href="{{ url_for('gabout') }}">Über uns</a></li>
+            <li>
+                <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">Abmelden</a>
+                <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;"></form>
+            </li>
+        </ul>
+
+<!-- Sprachauswahl-Dropdown -->
+<div class="language-selection" onclick="toggleDropdown()">
+    <span class="arrow"></span>
+    <div class="dropdown-content" id="dropdown">
+        <ul>
+            <li><a href="{{ url_for('home') }}">English</a></li>
+            <li><a href="{{ url_for('spanish') }}">Spanisch</a></li>
+            <li><a href="{{ url_for('french') }}">Französisch</a></li>
+            <li><a href="{{ url_for('chinese') }}">Chinesisch</a></li>
+            <li><a href="{{ url_for('hindi') }}">Hindi</a></li>
+        </ul>
+    </div>
+</div>
+    </nav>
+    <div class="container">
+
+<!-- Seitenleiste -->
+<aside class="sidebar">
+    <h2>Kategorien</h2>
+    <ul>
+        <li><a href="{{ url_for('loveq') }}">Liebeszitate</a></li>
+        <li><a href="{{ url_for('motivationq') }}">Motivationszitate</a></li>
+        <li><a href="{{ url_for('sadq') }}">Traurige Zitate</a></li>
+        <li><a href="{{ url_for('wisdomq') }}">Weisheiten</a></li>
+        <li><a href="{{ url_for('lifeq') }}">Lebenszitate</a></li>
+        <li><a href="{{ url_for('successq') }}">Erfolgszitate</a></li>
+        <li><a href="{{ url_for('lovep') }}">Liebessprichwörter</a></li>
+        <li><a href="{{ url_for('motivationp') }}">Motivationssprichwörter</a></li>
+        <li><a href="{{ url_for('sadp') }}">Traurige Sprichwörter</a></li>
+        <li><a href="{{ url_for('wisdomp') }}">Weisheitssprichwörter</a></li>
+        <li><a href="{{ url_for('lifep') }}">Lebensweisheiten</a></li>
+        <li><a href="{{ url_for('successp') }}">Erfolgssprichwörter</a></li>
+    </ul>
+</aside>
+
+<div class="category-container">
+    <div class="category" onclick="window.location.href='{{ url_for('lovegq') }}';">
+        <img src="{{ url_for('static', filename='assets/love.jpeg') }}" alt="">
+        <p>Liebeszitate</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('motivationgq') }}';">
+        <img src="{{ url_for('static', filename='assets/motivation.jpg') }}" alt="">
+        <p>Motivationszitate</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('successgq') }}';">
+        <img src="{{ url_for('static', filename='assets/success.jpg') }}" alt="">
+        <p>Erfolgszitate</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('wisdomgq') }}';">
+        <img src="{{ url_for('static', filename='assets/wisdom.jpg') }}" alt="">
+        <p>Weisheiten</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('lifegq') }}';">
+        <img src="{{ url_for('static', filename='assets/life.jpg') }}" alt="">
+        <p>Lebenszitate</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('sadgq') }}';">
+        <img src="{{ url_for('static', filename='assets/sad.jpeg') }}" alt="">
+        <p>Traurige Zitate</p>
+    </div>
+
+    <div class="category-container">
+        <div class="category" onclick="window.location.href='{{ url_for('lovegp') }}';">
+            <img src="{{ url_for('static', filename='assets/lovep.jpg') }}" alt="">
+            <p>Liebes
+                Sprichwörter</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('motivationgp') }}';">
+            <img src="{{ url_for('static', filename='assets/motp.jpg') }}" alt="">
+            <p>Motivations
+                Sprichwörter</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('successgp') }}';">
+            <img src="{{ url_for('static', filename='assets/successp.jpeg') }}" alt="">
+            <p>Erfolgs
+                Sprichwörter</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('wisdomgp') }}';">
+            <img src="{{ url_for('static', filename='assets/wisdomp.jpeg') }}" alt="">
+            <p>Weisheits
+                Sprichwörter</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('lifegp') }}';">
+            <img src="{{ url_for('static', filename='assets/lifep.jpeg') }}" alt="">
+            <p>Lebensweisheiten</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('sadgp') }}';">
+            <img src="{{ url_for('static', filename='assets/Sad.jpg') }}" alt="">
+            <p>Traurige Sprichwörter</p>
+        </div>
+    </div>
+</div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

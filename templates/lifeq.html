@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Quotes - Quotes and Proverbs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('quotes') }}">Quotes</a></li>
+            <li><a href="{{ url_for('proverbs') }}">Proverbs</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li>
+                <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;"></form>
+            </li>
+        </ul>
+
+<!-- Language Selection Dropdown -->
+<div class="language-selection" onclick="toggleDropdown()">
+    <span class="arrow"></span> <!-- Clickable Arrow -->
+    <div class="dropdown-content" id="dropdown">
+        <ul>
+            <li><a href="{{ url_for('spanish') }}">Spanish</a></li>
+            <li><a href="{{ url_for('german') }}">German</a></li>
+            <li><a href="{{ url_for('french') }}">French</a></li>
+            <li><a href="{{ url_for('chinese') }}">Chinese</a></li>
+            <li><a href="{{ url_for('hindi') }}">Hindi</a></li>
+        </ul>
+    </div>
+</div>
+    </nav>
+    <div class="container">
+<!-- Sidebar -->
+<aside class="sidebar">
+    <h2>Categories</h2>
+    <ul>
+        <li><a href="{{ url_for('loveq') }}">Love Quotes</a></li>
+        <li><a href="{{ url_for('motivationq') }}">Motivation Quotes</a></li>
+        <li><a href="{{ url_for('sadq') }}">Sad Quotes</a></li>
+        <li><a href="{{ url_for('wisdomq') }}">Wisdom Quotes</a></li>
+        <li><a href="{{ url_for('lifeq') }}">Life Quotes</a></li>
+        <li><a href="{{ url_for('successq') }}">Success Quotes</a></li>
+        <li><a href="{{ url_for('lovep') }}">Love Proverbs</a></li>
+        <li><a href="{{ url_for('motivationp') }}">Motivation Proverbs</a></li>
+        <li><a href="{{ url_for('sadp') }}">Sad Proverbs</a></li>
+        <li><a href="{{ url_for('wisdomp') }}">Wisdom Proverbs</a></li>
+        <li><a href="{{ url_for('lifep') }}">Life Proverbs</a></li>
+        <li><a href="{{ url_for('successp') }}">Success Proverbs</a></li>
+    </ul>
+</aside>
+<button class="plus-button" onclick="showPopupForm()">+</button>
+
+<!-- Popup form -->
+<div id="popup-form" class="popup-form" style="display: none;">
+    <form method="post" action="/submitlifeq_form">
+
+        <label for="quote">Quote:</label>
+        <input type="text" name="quote" required><br>
+
+        <label for="author">Author:</label>
+        <input type="text" name="author" required><br>
+
+        <label for="explanation">Explanation:</label>
+        <textarea name="explanation" required></textarea><br>
+
+        <input type="submit" value="Submit">
+        <button type="button" onclick="hidePopupForm()">Close</button>
+    </form>
+</div>
+
+        <!-- Main Content -->
+<div class="quote-grid">
+    
+    {% if quotes %}
+        {% for quote in quotes %}
+            <div class="quote-card">
+                <blockquote>"{{ quote['quote'] }}"</blockquote>
+                <p class="author">— {{ quote['author'] }}</p>
+                <p class="explanation">{{ quote['explanation'] }}</p>
+                <p class="timestamp">{{ quote['timestamp'] }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+<script>
+    function showPopupForm() {
+        document.getElementById("popup-form").style.display = "block";
+    }
+
+    function hidePopupForm() {
+        document.getElementById("popup-form").style.display = "none";
+    }
+</script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proverbios de Vida - Citas y Proverbios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages.css') }}">
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="Logo">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Inicio</a></li>
+        <li><a href="{{ url_for('quotes') }}">Citas</a></li>
+        <li><a href="{{ url_for('proverbs') }}">Proverbios</a></li>
+        <li><a href="{{ url_for('sabout') }}">Acerca de</a></li>
+        <li>
+            <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">Cerrar sesión</a>
+            <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;"></form>
+        </li>
+    </ul>
+
+    <!-- Selector de idioma -->
+    <div class="language-selection" onclick="toggleDropdown()">
+        <span class="arrow"></span>
+        <div class="dropdown-content" id="dropdown">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inglés</a></li>
+                <li><a href="{{ url_for('german') }}">Alemán</a></li>
+                <li><a href="{{ url_for('french') }}">Francés</a></li>
+                <li><a href="{{ url_for('chinese') }}">Chino</a></li>
+                <li><a href="{{ url_for('hindi') }}">Hindi</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<!-- Barra lateral -->
+<aside class="sidebar">
+    <h2>Categorías</h2>
+    <ul>
+        <li><a href="{{ url_for('lovesq') }}">Citas de Amor</a></li>
+        <li><a href="{{ url_for('motivationsq') }}">Citas de Motivación</a></li>
+        <li><a href="{{ url_for('sadsq') }}">Citas Tristes</a></li>
+        <li><a href="{{ url_for('wisdomsq') }}">Citas de Sabiduría</a></li>
+        <li><a href="{{ url_for('lifesq') }}">Citas de Vida</a></li>
+        <li><a href="{{ url_for('successsq') }}">Citas de Éxito</a></li>
+        <li><a href="{{ url_for('lovesp') }}">Proverbios de Amor</a></li>
+        <li><a href="{{ url_for('motivationsp') }}">Proverbios de Motivación</a></li>
+        <li><a href="{{ url_for('sadsp') }}">Proverbios Tristes</a></li>
+        <li><a href="{{ url_for('wisdomsp') }}">Proverbios de Sabiduría</a></li>
+        <li><a href="{{ url_for('lifesp') }}">Proverbios de Vida</a></li>
+        <li><a href="{{ url_for('successsp') }}">Proverbios de Éxito</a></li>
+    </ul>
+</aside>
+<button class="plus-button" onclick="showPopupForm()">+</button>
+
+<!-- Formulario emergente -->
+<div id="popup-form" class="popup-form" style="display: none;">
+    <form method="post" action="/submitmotivationsq_form">
+
+        <label for="quote">Cita:</label>
+        <input type="text" name="quote" required><br>
+
+        <label for="author">Autor:</label>
+        <input type="text" name="author" required><br>
+
+        <label for="explanation">Explicación:</label>
+        <textarea name="explanation" required></textarea><br>
+
+        <input type="submit" value="Enviar">
+        <button type="button" onclick="hidePopupForm()">Cerrar</button>
+    </form>
+</div>
+
+<!-- Contenido principal -->
+<div class="quote-grid">
+
+    {% if quotes %}
+        {% for quote in quotes %}
+            <div class="quote-card">
+                <blockquote>"{{ quote['quote'] }}"</blockquote>
+                <p class="author">— {{ quote['author'] }}</p>
+                <p class="explanation">{{ quote['explanation'] }}</p>
+                <p class="timestamp">{{ quote['timestamp'] }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script>
+    function showPopupForm() {
+        document.getElementById("popup-form").style.display = "block";
+    }
+
+    function hidePopupForm() {
+        document.getElementById("popup-form").style.display = "none";
+    }
+</script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

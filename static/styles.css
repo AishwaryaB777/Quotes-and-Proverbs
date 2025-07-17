@@ -1,0 +1,273 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif; /* Classy and elegant font */
+    
+}
+
+body {
+    background-color: #F4EAF4; /* Soft lavender background */
+    color: #4A235A; /* Deep purple for text */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    background-color: #6A0572; /* Rich lavender */
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+.containers {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    overflow: auto;
+}
+.introduction {
+    margin-bottom: 2rem;
+    font-style: italic;
+
+}
+
+.introduction h2 {
+    font-size: 2rem;
+    color: #6A0572;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.introduction p {
+    font-size: 1.2rem;
+    color: #4A235A;
+    text-align: center;
+}
+
+.btn {
+    padding: 0.7rem 2rem;
+    background: #8E44AD; /* Rich purple */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #732D91;
+    transform: scale(1.05);
+}
+
+/* Login Section */
+.login-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    background: rgba(106, 5, 114, 0.8); /* Deep lavender with slight transparency */
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 420px;
+    height:400px;
+    box-shadow: 0 6px 15px rgba(106, 5, 114, 0.3);
+    margin-top: 2rem;
+    text-align: left;
+    overflow: auto;
+}
+
+.signup-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    background: rgba(106, 5, 114, 0.8); /* Deep lavender with slight transparency */
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 420px;
+    height: 440px;
+    box-shadow: 0 6px 15px rgba(106, 5, 114, 0.3);
+    margin-top: 2rem;
+    text-align: left;
+    overflow: auto;
+}
+.form-containers {
+    background: rgba(106, 5, 114, 0.8); /* Deep lavender with slight transparency */
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 420px;
+    height: 650px;
+    box-shadow: 0 6px 15px rgba(106, 5, 114, 0.3);
+    margin-top: 2rem;
+    text-align: left;
+    overflow: auto;
+}
+
+.loginc{
+    color: #fff;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #E6DAE6; /* Soft pastel white */
+    font-weight: 600;
+}
+
+input {
+    padding: 0.7rem;
+    width: 100%;
+    border: 1px solid #C39BD3; /* Light purple border */
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    background: #F4EAF4; /* Soft lavender */
+    color: #4A235A;
+}
+
+button {
+    padding: 0.7rem 2rem;
+    background: #8E44AD; /* Rich purple */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #732D91;
+    transform: scale(1.05);
+}
+
+p {
+    margin-top: 1rem;
+    color: #E6DAE6;
+    text-align: center;
+}
+
+a {
+    color: #D4A5D4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #4A235A;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.footer p {
+    font-size: 0.9rem;
+}
+
+/* Dropdown Content */
+/* Dropdown Content - Display as a Vertical List */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    height:660px;
+    width: 250px;
+    top: 100%;
+    right: 0px;
+    left: -157px;
+    background-color: #6A0572;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    z-index: 100;
+    margin-left: 0;
+    color:#fff;
+    min-width: 120px; /* Ensures dropdown is wide enough */
+}
+
+/* Dropdown List - Removes the default select dropdown */
+.dropdown-content ul li {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure <a> takes full width & height */
+.dropdown-content ul li a {
+    text-decoration: none;
+    color: #F4EAF4;
+    display: block; /* Makes <a> fill the <li> */
+    width: 100%; /* Ensures full width */
+    height: 100%; /* Ensures full height */
+    padding: 45px 10px; /* Padding to match <li> */
+}
+
+/* Hover effect applies when hovering over the whole box */
+.dropdown-content ul li:hover {
+    background-color: #F4EAF4;
+}
+
+.dropdown-content ul li:hover a {
+    color: #6A0572; /* Changes text color */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

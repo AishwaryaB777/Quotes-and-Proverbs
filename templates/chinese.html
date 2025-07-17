@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仪表板 - 名言和谚语</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{{ url_for('chinese') }}">首页</a></li>
+            <li><a href="{{ url_for('quotes') }}">名言</a></li>
+            <li><a href="{{ url_for('proverbs') }}">谚语</a></li>
+            <li><a href="{{ url_for('cabout') }}">关于我们</a></li>
+            <li>
+                <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">登出</a>
+                <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;"></form>
+            </li>
+        </ul>
+
+<!-- Language Selection Dropdown -->
+<div class="language-selection" onclick="toggleDropdown()">
+    <span class="arrow"></span> <!-- Clickable Arrow -->
+    <div class="dropdown-content" id="dropdown">
+        <ul>            
+            <li><a href="{{ url_for('home') }}">英语</a></li>
+            <li><a href="{{ url_for('spanish') }}">西班牙语</a></li>
+            <li><a href="{{ url_for('german') }}">德语</a></li>
+            <li><a href="{{ url_for('french') }}">法语</a></li>
+            <li><a href="{{ url_for('hindi') }}">印地语</a></li>
+        </ul>
+    </div>
+</div>
+    </nav>
+    <div class="container">
+<!-- Sidebar -->
+<aside class="sidebar">
+    <h2>类别</h2>
+    <ul>
+        <li><a href="{{ url_for('lovecq') }}">爱情名言</a></li>
+        <li><a href="{{ url_for('motivationcq') }}">励志名言</a></li>
+        <li><a href="{{ url_for('sadcq') }}">悲伤名言</a></li>
+        <li><a href="{{ url_for('wisdomcq') }}">智慧名言</a></li>
+        <li><a href="{{ url_for('lifecq') }}">人生名言</a></li>
+        <li><a href="{{ url_for('successcq') }}">成功名言</a></li>
+        <li><a href="{{ url_for('lovecp') }}">爱情谚语</a></li>
+        <li><a href="{{ url_for('motivationcp') }}">励志谚语</a></li>
+        <li><a href="{{ url_for('sadcp') }}">悲伤谚语</a></li>
+        <li><a href="{{ url_for('wisdomcp') }}">智慧谚语</a></li>
+        <li><a href="{{ url_for('lifecp') }}">人生谚语</a></li>
+        <li><a href="{{ url_for('successcp') }}">成功谚语</a></li>
+    </ul>
+</aside>
+<div class="category-container">
+    <div class="category" onclick="window.location.href='{{ url_for('lovecq') }}';">
+        <img src="{{ url_for('static', filename='assets/love.jpeg') }}" alt="">
+        <p>爱情名言</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('motivationcq') }}';">
+        <img src="{{ url_for('static', filename='assets/motivation.jpg') }}" alt="">
+        <p>励志名言</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('successcq') }}';">
+        <img src="{{ url_for('static', filename='assets/success.jpg') }}" alt="">
+        <p>成功名言</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('wisdomcq') }}';">
+        <img src="{{ url_for('static', filename='assets/wisdom.jpg') }}" alt="">
+        <p>智慧名言</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('lifecq') }}';">
+        <img src="{{ url_for('static', filename='assets/life.jpg') }}" alt="">
+        <p>人生名言</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('sadcq') }}';">
+        <img src="{{ url_for('static', filename='assets/sad.jpeg') }}" alt="">
+        <p>悲伤名言</p>
+    </div>
+    <div class="category-container">
+        <div class="category" onclick="window.location.href='{{ url_for('lovecp') }}';">
+            <img src="{{ url_for('static', filename='assets/lovep.jpg') }}" alt="">
+            <p>爱情谚语</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('motivationcp') }}';">
+            <img src="{{ url_for('static', filename='assets/motp.jpg') }}" alt="">
+            <p>励志谚语</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('successcp') }}';">
+            <img src="{{ url_for('static', filename='assets/successp.jpeg') }}" alt="">
+            <p>成功谚语</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('wisdomcp') }}';">
+            <img src="{{ url_for('static', filename='assets/wisdomp.jpeg') }}" alt="">
+            <p>智慧谚语</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('lifecp') }}';">
+            <img src="{{ url_for('static', filename='assets/lifep.jpeg') }}" alt="">
+            <p>人生谚语</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('sadcp') }}';">
+            <img src="{{ url_for('static', filename='assets/Sad.jpg') }}" alt="">
+            <p>悲伤谚语</p>
+        </div>
+    </div>
+</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

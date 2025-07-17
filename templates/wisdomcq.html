@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仪表板 - 名言和谚语</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{{ url_for('chinese') }}">首页</a></li>
+            <li><a href="{{ url_for('quotes') }}">名言</a></li>
+            <li><a href="{{ url_for('proverbs') }}">谚语</a></li>
+            <li><a href="{{ url_for('cabout') }}">关于我们</a></li>
+            <li>
+                <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">登出</a>
+                <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;"></form>
+            </li>
+        </ul>
+
+<!-- Language Selection Dropdown -->
+<div class="language-selection" onclick="toggleDropdown()">
+    <span class="arrow"></span> <!-- Clickable Arrow -->
+    <div class="dropdown-content" id="dropdown">
+        <ul>
+            <li><a href="{{ url_for('home') }}">英语</a></li>
+            <li><a href="{{ url_for('spanish') }}">西班牙语</a></li>
+            <li><a href="{{ url_for('german') }}">德语</a></li>
+            <li><a href="{{ url_for('french') }}">法语</a></li>
+            <li><a href="{{ url_for('hindi') }}">印地语</a></li>    
+        </ul>
+    </div>
+</div>
+    </nav>
+    <div class="container">
+<!-- Sidebar -->
+<aside class="sidebar">
+    <h2>类别</h2>
+    <ul>
+        <li><a href="{{ url_for('lovecq') }}">爱情名言</a></li>
+        <li><a href="{{ url_for('motivationcq') }}">励志名言</a></li>
+        <li><a href="{{ url_for('sadcq') }}">悲伤名言</a></li>
+        <li><a href="{{ url_for('wisdomcq') }}">智慧名言</a></li>
+        <li><a href="{{ url_for('lifecq') }}">人生名言</a></li>
+        <li><a href="{{ url_for('successcq') }}">成功名言</a></li>
+        <li><a href="{{ url_for('lovecp') }}">爱情谚语</a></li>
+        <li><a href="{{ url_for('motivationcp') }}">励志谚语</a></li>
+        <li><a href="{{ url_for('sadcp') }}">悲伤谚语</a></li>
+        <li><a href="{{ url_for('wisdomcp') }}">智慧谚语</a></li>
+        <li><a href="{{ url_for('lifecp') }}">人生谚语</a></li>
+        <li><a href="{{ url_for('successcp') }}">成功谚语</a></li>
+    </ul>
+</aside>
+        <button class="plus-button" onclick="showPopupForm()">+</button>
+
+        <!-- 弹出表单 -->
+        <div id="popup-form" class="popup-form" style="display: none;">
+            <form method="post" action="/submitwisdomcq_form">
+
+                <label for="quote">语录：</label>
+                <input type="text" name="quote" required><br>
+
+                <label for="author">作者：</label>
+                <input type="text" name="author" required><br>
+
+                <label for="explanation">解释：</label>
+                <textarea name="explanation" required></textarea><br>
+
+                <input type="submit" value="提交">
+                <button type="button" onclick="hidePopupForm()">关闭</button>
+            </form>
+        </div>
+
+        <!-- 主内容 -->
+        <div class="quote-grid">
+            {% if quotes %}
+                {% for quote in quotes %}
+                    <div class="quote-card">
+                        <blockquote>"{{ quote['quote'] }}"</blockquote>
+                        <p class="author">— {{ quote['author'] }}</p>
+                        <p class="explanation">{{ quote['explanation'] }}</p>
+                        <p class="timestamp">{{ quote['timestamp'] }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <script>
+            function showPopupForm() {
+                document.getElementById("popup-form").style.display = "block";
+            }
+
+            function hidePopupForm() {
+                document.getElementById("popup-form").style.display = "none";
+            }
+        </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

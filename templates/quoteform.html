@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Quote - Section: {{ section }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { margin-top: 20px; }
+        .btn {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn.cancel { background-color: #dc3545; }
+        .btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <h1>Add a New Quote to Section: {{ section }}</h1>
+    <form method="POST" action="/submit">
+        <!-- Hidden fields for section and draft id -->
+        <input type="hidden" name="section" value="{{ section }}">
+        <input type="hidden" name="draft_id" value="{{ draft_id }}">
+        <div>
+            <label for="quote">Quote:</label><br>
+            <textarea id="quote" name="quote" required rows="3" cols="50"></textarea>
+        </div>
+        <div>
+            <label for="author">Author Name:</label><br>
+            <input type="text" id="author" name="author" required>
+        </div>
+        <div>
+            <label for="explanation">Explanation:</label><br>
+            <textarea id="explanation" name="explanation" rows="3" cols="50"></textarea>
+        </div>
+        <button type="submit" class="btn">Submit Quote</button>
+        <!-- Cancel button that deletes the draft -->
+        <a href="{{ url_for('cancel', draft_id=draft_id, section_name=section) }}">
+            <button type="button" class="btn cancel">Cancel</button>
+        </a>
+    </form>
+</body>
+</html>

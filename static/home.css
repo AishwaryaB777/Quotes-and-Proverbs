@@ -1,0 +1,224 @@
+body {
+    background-color: #F4EAF4;
+    font-family: Arial, sans-serif;
+    color: #6A0572;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #6A0572;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+h2 {
+    color: #6A0572;
+}
+
+.language-selection {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 19px;
+}
+.navbar {
+    background: #6A0572;
+    color: #F4EAF4;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: flex-start; /* Changed from space-between to flex-start */
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    gap: 1.5rem; /* Added to give space between logo and nav links */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0; /* Ensuring no extra margin shifts the position */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #F4EAF4;
+    font-weight: bold;
+    font-size: 20px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #F4EAF4; 
+    border-bottom: 2px solid;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 58px;
+    width: auto;
+    border-radius: 50px;
+}
+
+/* Language Selection Dropdown */
+.language-selection {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding: 0px;
+    border: 1px solid #6A0572;
+    background-color: #6A0572;
+    border-radius: 5px;
+    margin-left: auto;
+}
+
+/* Styling for the arrow */
+.arrow {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ecaaf0'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+
+/* Dropdown Content */
+/* Dropdown Content - Display as a Vertical List */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    height:660px;
+    width: 250px;
+    top: 100%;
+    right: 0px;
+    left: -157px;
+    background-color: #6A0572;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    z-index: 100;
+    margin-left: 0;
+    min-width: 120px; /* Ensures dropdown is wide enough */
+}
+
+/* Dropdown List - Removes the default select dropdown */
+.dropdown-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* Dropdown Items */
+.dropdown-content ul li {
+    padding: 10px 15px; /* Adjust padding */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure <a> takes full width & height */
+.dropdown-content ul li a {
+    text-decoration: none;
+    color: #F4EAF4;
+    display: block; /* Makes <a> fill the <li> */
+    width: 100%; /* Ensures full width */
+    height: 100%; /* Ensures full height */
+    padding: 45px 10px; /* Padding to match <li> */
+}
+
+/* Hover effect applies when hovering over the whole box */
+.dropdown-content ul li:hover {
+    background-color: #F4EAF4;
+}
+
+.dropdown-content ul li:hover a {
+    color: #6A0572; /* Changes text color */
+}
+
+/* Show dropdown */
+.language-selection.show .dropdown-content {
+    display: block;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 175px;
+    background: #6A0572;
+    padding: 20px;
+    height: 106vh;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+    color:#F4EAF4;
+    font-family: 'Playfair Display', serif;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #F4EAF4;
+    display: block;
+    font-family: 'Playfair Display', serif;
+    
+}
+
+.sidebar ul li a:hover {
+    color: #6A0572;
+    background-color: #F4EAF4;
+}
+
+.category img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+.category {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.category p {
+    margin-top: 8px;
+    font-weight: bold;
+    text-align: center;
+}

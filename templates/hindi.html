@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>जीवन की कहावतें - उद्धरण और कहावतें</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+
+    <!-- नेविगेशन बार -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">मुखपृष्ठ</a></li>
+            <li><a href="{{ url_for('quotes') }}">उद्धरण</a></li>
+            <li><a href="{{ url_for('proverbs') }}">कहावतें</a></li>
+            <li><a href="{{ url_for('habout') }}">हमारे बारे में</a></li>
+            <li>
+                <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">लॉग आउट</a>
+                <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;"></form>
+            </li>
+        </ul>
+
+<!-- भाषा चयन ड्रॉपडाउन -->
+<div class="language-selection" onclick="toggleDropdown()">
+    <span class="arrow"></span> <!-- क्लिक करने योग्य एरो -->
+    <div class="dropdown-content" id="dropdown">
+        <ul>
+            <li><a href="{{ url_for('spanish') }}">स्पेनिश</a></li>
+            <li><a href="{{ url_for('german') }}">जर्मन</a></li>
+            <li><a href="{{ url_for('french') }}">फ्रेंच</a></li>
+            <li><a href="{{ url_for('chinese') }}">चीनी</a></li>
+            <li><a href="{{ url_for('hindi') }}"></a></li>
+        </ul>
+    </div>
+</div>
+    </nav>
+
+    <div class="container">
+
+<!-- साइडबार -->
+<aside class="sidebar">
+    <h2>श्रेणियाँ</h2>
+    <ul>
+        <li><a href="{{ url_for('lovehq') }}">प्रेम उद्धरण</a></li>
+        <li><a href="{{ url_for('motivationhq') }}">प्रेरणा उद्धरण</a></li>
+        <li><a href="{{ url_for('sadhq') }}">दुखद उद्धरण</a></li>
+        <li><a href="{{ url_for('wisdomhq') }}">बुद्धिमान उद्धरण</a></li>
+        <li><a href="{{ url_for('lifehq') }}">जीवन उद्धरण</a></li>
+        <li><a href="{{ url_for('successhq') }}">सफलता उद्धरण</a></li>
+        <li><a href="{{ url_for('lovehp') }}">प्रेम की कहावतें</a></li>
+        <li><a href="{{ url_for('motivationhp') }}">प्रेरणादायक कहावतें</a></li>
+        <li><a href="{{ url_for('sadhp') }}">दुखद कहावतें</a></li>
+        <li><a href="{{ url_for('wisdomhp') }}">बुद्धिमत्ता की कहावतें</a></li>
+        <li><a href="{{ url_for('lifehp') }}">जीवन की कहावतें</a></li>
+        <li><a href="{{ url_for('successhp') }}">सफलता की कहावतें</a></li>
+    </ul>
+</aside>
+
+<!-- श्रेणी ग्रिड -->
+<div class="category-container">
+    <div class="category" onclick="window.location.href='{{ url_for('lovehq') }}';">
+        <img src="{{ url_for('static', filename='assets/love.jpeg') }}" alt="">
+        <p>प्रेम उद्धरण</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('motivationhq') }}';">
+        <img src="{{ url_for('static', filename='assets/motivation.jpg') }}" alt="">
+        <p>प्रेरणा उद्धरण</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('successhq') }}';">
+        <img src="{{ url_for('static', filename='assets/success.jpg') }}" alt="">
+        <p>सफलता उद्धरण</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('wisdomhq') }}';">
+        <img src="{{ url_for('static', filename='assets/wisdom.jpg') }}" alt="">
+        <p>बुद्धिमान उद्धरण</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('lifehq') }}';">
+        <img src="{{ url_for('static', filename='assets/life.jpg') }}" alt="">
+        <p>जीवन उद्धरण</p>
+    </div>
+    <div class="category" onclick="window.location.href='{{ url_for('sadhq') }}';">
+        <img src="{{ url_for('static', filename='assets/sad.jpeg') }}" alt="">
+        <p>दुखद उद्धरण</p>
+    </div>
+
+    <div class="category-container">
+        <div class="category" onclick="window.location.href='{{ url_for('lovehp') }}';">
+            <img src="{{ url_for('static', filename='assets/lovep.jpg') }}" alt="">
+            <p>प्रेम की कहावतें</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('motivationhp') }}';">
+            <img src="{{ url_for('static', filename='assets/motp.jpg') }}" alt="">
+            <p>प्रेरणा की कहावतें</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('successhp') }}';">
+            <img src="{{ url_for('static', filename='assets/successp.jpeg') }}" alt="">
+            <p>सफलता की कहावतें</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('wisdomhp') }}';">
+            <img src="{{ url_for('static', filename='assets/wisdomp.jpeg') }}" alt="">
+            <p>बुद्धिमत्ता की कहावतें</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('lifehp') }}';">
+            <img src="{{ url_for('static', filename='assets/lifep.jpeg') }}" alt="">
+            <p>जीवन की कहावतें</p>
+        </div>
+        <div class="category" onclick="window.location.href='{{ url_for('sadhp') }}';">
+            <img src="{{ url_for('static', filename='assets/Sad.jpg') }}" alt="">
+            <p>दुखद कहावतें</p>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

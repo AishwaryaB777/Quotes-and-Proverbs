@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生谚语 - 名言与谚语</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages.css') }}">
+    <style>
+        body {
+            background-color: #F4EAF4;
+            font-family: 'Playfair Display', serif;
+            color: #6A0572;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .containers {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: #6A0572;
+            font-size: 28px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #6A0572;
+        }
+        h3 {
+            color: #8A3E85;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="标志">
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">主页</a></li>
+            <li><a href="{{ url_for('quotes') }}">名言</a></li>
+            <li><a href="{{ url_for('proverbs') }}">谚语</a></li>
+            <li><a href="{{ url_for('cabout') }}">关于我们</a></li>
+            <li>
+                <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">登出</a>
+                <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;"></form>
+            </li>
+        </ul>
+        <div class="language-selection" onclick="toggleDropdown()">
+            <span class="arrow"></span>
+            <div class="dropdown-content" id="dropdown">
+                <ul>
+                    <li><a href="{{ url_for('spanish') }}">西班牙语</a></li>
+                    <li><a href="{{ url_for('german') }}">德语</a></li>
+                    <li><a href="{{ url_for('french') }}">法语</a></li>
+                    <li><a href="{{ url_for('home') }}">英语</a></li>
+                    <li><a href="{{ url_for('hindi') }}">印地语</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>类别</h2>
+            <ul>
+                <li><a href="{{ url_for('loveq') }}">爱情名言</a></li>
+                <li><a href="{{ url_for('motivationq') }}">励志名言</a></li>
+                <li><a href="{{ url_for('sadq') }}">伤感名言</a></li>
+                <li><a href="{{ url_for('wisdomq') }}">智慧名言</a></li>
+                <li><a href="{{ url_for('lifeq') }}">人生名言</a></li>
+                <li><a href="{{ url_for('successq') }}">成功名言</a></li>
+                <li><a href="{{ url_for('lovep') }}">爱情谚语</a></li>
+                <li><a href="{{ url_for('motivationp') }}">励志谚语</a></li>
+                <li><a href="{{ url_for('sadp') }}">伤感谚语</a></li>
+                <li><a href="{{ url_for('wisdomp') }}">智慧谚语</a></li>
+                <li><a href="{{ url_for('lifep') }}">人生谚语</a></li>
+                <li><a href="{{ url_for('successp') }}">成功谚语</a></li>
+            </ul>
+        </aside>
+        <div class="containers">
+            <h1>关于我们</h1>
+            <p>欢迎来到<strong>名言与谚语</strong>，这是一个收集经典名言与谚语的终极平台！
+            我们相信语言有力量，能够激励、教导，并连接不同文化和世代的人们。</p>
+            <p>在这里，您不仅可以发现伟大思想家的深刻话语，还可以分享您喜欢的名言和谚语。
+            解释它们的意义，探讨它们的重要性，并开启智慧和洞察力的对话。</p>
+            <p>无论您是在寻找每日激励，深刻的思考，还是仅仅想欣赏语言的魅力，
+            <strong>名言与谚语</strong>都是您的理想社区。加入我们，让智慧永存，一次一句名言！</p>
+            <h3>表达。分享。启发。</h3>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

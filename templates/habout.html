@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>जीवन की बुद्धिमत्ता – उद्धरण और कहावतें</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages.css') }}">
+    <style>
+        body {
+            background-color: #F4EAF4;
+            font-family: 'Playfair Display', serif;
+            color: #6A0572;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .containers {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: #6A0572;
+            font-size: 28px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #6A0572;
+        }
+        h3 {
+            color: #8A3E85;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<!-- नेविगेशन बार -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="Logo">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">होम</a></li>
+        <li><a href="{{ url_for('quotes') }}">उद्धरण</a></li>
+        <li><a href="{{ url_for('proverbs') }}">कहावतें</a></li>
+        <li><a href="{{ url_for('habout') }}">हमारे बारे में</a></li>
+        <li>
+            <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">लॉग आउट</a>
+            <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;"></form>
+        </li>
+    </ul>
+
+    <!-- भाषा चयन ड्रॉपडाउन -->
+    <div class="language-selection" onclick="toggleDropdown()">
+        <span class="arrow"></span>
+        <div class="dropdown-content" id="dropdown">
+            <ul>
+                <li><a href="{{ url_for('spanish') }}">स्पेनिश</a></li>
+                <li><a href="{{ url_for('german') }}">जर्मन</a></li>
+                <li><a href="{{ url_for('french') }}">फ्रेंच</a></li>
+                <li><a href="{{ url_for('chinese') }}">चीनी</a></li>
+                <li><a href="{{ url_for('home') }}">अँग्रेज़ी</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- साइडबार -->
+    <aside class="sidebar">
+        <h2>श्रेणियाँ</h2>
+        <ul>
+            <li><a href="{{ url_for('lovehq') }}">प्रेम उद्धरण</a></li>
+            <li><a href="{{ url_for('motivationhq') }}">प्रेरणादायक उद्धरण</a></li>
+            <li><a href="{{ url_for('sadhq') }}">दुखद उद्धरण</a></li>
+            <li><a href="{{ url_for('wisdomhq') }}">बुद्धिमत्ता के शब्द</a></li>
+            <li><a href="{{ url_for('lifehq') }}">जीवन उद्धरण</a></li>
+            <li><a href="{{ url_for('successhq') }}">सफलता के उद्धरण</a></li>
+            <li><a href="{{ url_for('lovehp') }}">प्रेम की कहावतें</a></li>
+            <li><a href="{{ url_for('motivationhp') }}">प्रेरणादायक कहावतें</a></li>
+            <li><a href="{{ url_for('sadhp') }}">दुखद कहावतें</a></li>
+            <li><a href="{{ url_for('wisdomhp') }}">बुद्धिमत्तापूर्ण कहावतें</a></li>
+            <li><a href="{{ url_for('lifehp') }}">जीवन की कहावतें</a></li>
+            <li><a href="{{ url_for('successhp') }}">सफलता की कहावतें</a></li>
+        </ul>
+    </aside>
+
+    <div class="containers">
+        <h1>हमारे बारे में</h1>
+        <p><strong>उद्धरण और कहावतें</strong> में आपका स्वागत है – यह समयहीन ज्ञान के लिए अंतिम गंतव्य है!
+        हम मानते हैं कि शब्दों में प्रेरित करने, सिखाने और संस्कृतियों तथा पीढ़ियों के पार लोगों को जोड़ने की शक्ति होती है।</p>
+        
+        <p>यहाँ आप न केवल महान विचारकों के शक्तिशाली कथनों की खोज कर सकते हैं, बल्कि अपने पसंदीदा उद्धरण और कहावतें भी साझा कर सकते हैं।
+        उनके अर्थ की व्याख्या करें, उनके संदर्भ को समझाएं, और ऐसी चर्चाओं की शुरुआत करें जो ज्ञान और अंतर्दृष्टि को बढ़ावा दें।</p>
+        
+        <p>चाहे आप रोज़ाना की प्रेरणा खोज रहे हों, गहरी सोच में डूबना चाहते हों या केवल भाषा की सुंदरता की सराहना करते हों –
+        <strong>उद्धरण और कहावतें</strong> आपका समुदाय है। जुड़िए और ज्ञान को जीवित रखिए – एक उद्धरण एक बार में!</p>
+        
+        <h3>बोलिए। साझा कीजिए। प्रेरित कीजिए।</h3>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

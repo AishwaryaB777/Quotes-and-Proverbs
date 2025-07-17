@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes and Proverbs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>Quotes and Proverbs</h1>
+    </header>
+    <main class="main-content">
+        <section class="introduction">
+            <h2>Welcome to Your Daily Dose of Wisdom</h2>
+            <p>Explore the world of quotes and proverbs that inspire, motivate, and enlighten.</p>
+        </section>
+        <section class="cta-buttons">
+            <a href="{{ url_for('login') }}" class="btn">Login</a>
+            <a href="{{ url_for('signup') }}" class="btn">Sign Up</a>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 Quotes and Proverbs. All rights reserved.</p>
+    </footer>
+</body>
+</html>

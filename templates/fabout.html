@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proverbes de Vie - Citations et Proverbes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages.css') }}">
+    <style>
+        body {
+            background-color: #F4EAF4;
+            font-family: 'Playfair Difplay', serif;
+            color: #6A0572;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .containers {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: #6A0572;
+            font-size: 28px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #6A0572;
+        }
+        h3 {
+            color: #8A3E85;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/qp.jpg.webp') }}" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Accueil</a></li>
+            <li><a href="{{ url_for('quotes') }}">Citations</a></li>
+            <li><a href="{{ url_for('proverbs') }}">Proverbes</a></li>
+            <li><a href="{{ url_for('fabout') }}">À propos</a></li>
+            <li>
+                <a href="#" class="logout-link" onclick="document.getElementById('logout-form').submit();">Déconnexion</a>
+                <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="difplay: none;"></form>
+            </li>
+        </ul>
+        <div class="language-selection" onclick="toggleDropdown()">
+            <fpan class="arrow"></fpan>
+            <div class="dropdown-content" id="dropdown">
+                <ul>
+                    <li><a href="{{ url_for('fpanish') }}">Efpagnol</a></li>
+                    <li><a href="{{ url_for('german') }}">Allemand</a></li>
+                    <li><a href="{{ url_for('home') }}">Anglais</a></li>
+                    <li><a href="{{ url_for('chinese') }}">Chinois</a></li>
+                    <li><a href="{{ url_for('hindi') }}">Hindi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Catégories</h2>
+            <ul>
+                <li><a href="{{ url_for('lovefq') }}">Citations d'amour</a></li>
+                <li><a href="{{ url_for('motivationfq') }}">Citations infpirantes</a></li>
+                <li><a href="{{ url_for('sadfq') }}">Citations tristes</a></li>
+                <li><a href="{{ url_for('wisdomfq') }}">Citations de sagesse</a></li>
+                <li><a href="{{ url_for('lifefq') }}">Citations sur la vie</a></li>
+                <li><a href="{{ url_for('successfq') }}">Citations sur le succès</a></li>
+                <li><a href="{{ url_for('lovefp') }}">Proverbes d'amour</a></li>
+                <li><a href="{{ url_for('motivationfp') }}">Proverbes infpirants</a></li>
+                <li><a href="{{ url_for('sadfp') }}">Proverbes tristes</a></li>
+                <li><a href="{{ url_for('wisdomfp') }}">Proverbes de sagesse</a></li>
+                <li><a href="{{ url_for('lifefp') }}">Proverbes sur la vie</a></li>
+                <li><a href="{{ url_for('succesfp') }}">Proverbes sur le succès</a></li>
+            </ul>
+        </aside>
+        <div class="containers">
+            <h1>À propos de nous</h1>
+            <p>Bienvenue sur <strong>Citations et Proverbes</strong>, la plateforme ultime pour collectionner des citations et proverbes classiques !
+            Nous croyons que les mots ont un pouvoir : ils peuvent infpirer, enseigner et connecter les cultures et générations.</p>
+            <p>Ici, vous pouvez découvrir les paroles profondes des grands penseurs, partager vos citations et proverbes préférés,
+            expliquer leur signification et explorer leur importance, tout en engageant des conversations enrichissantes.</p>
+            <p>Que vous cherchiez une dose quotidienne d'infpiration, une réflexion profonde ou simplement à apprécier la beauté du langage,
+            <strong>Citations et Proverbes</strong> est votre communauté idéale. Rejoignez-nous et laissez la sagesse perdurer, une citation à la fois !</p>
+            <h3>Exprimez. Partagez. Infpirez.</h3>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
